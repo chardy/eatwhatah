@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Layout from '../components/Layout'
@@ -33,8 +33,12 @@ function decideWhatToEat(value){
 
 function details() {
   const router = useRouter()
-  const { id } = router.query
-  const whattoeat = decideWhatToEat(id)
+  const [slugId, setSlugId] = useState(null)
+  useEffect(() => {
+    setSlugId(router.query.id)
+  }, [])
+  const whattoeat = decideWhatToEat(slugId)
+
   return (
     <Layout>
       <div className="max-w-xs mx-auto">
@@ -48,7 +52,7 @@ function details() {
             </h1>
           </div>
         </div>
-        <h3 className="text-center pb-5 text-white">You have selected {id}</h3>
+        <h3 className="text-center pb-5 text-white">You have selected {slugId}</h3>
         <h2 className="text-5xl font-bold text-white pb-5 text-center">Can or not?</h2>
         <img className="imgFixedHeight rounded-full mx-auto border-white border-2" src={whattoeat.cover[0].thumbnails.large.url} alt={whattoeat.name} />
         <h3 className="text-center text-white text-3xl font-bold pt-5">{whattoeat.name}</h3>

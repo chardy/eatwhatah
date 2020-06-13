@@ -1,4 +1,9 @@
 {
+  "name": "eatwhatah",
+  "version": "0.1.0",
+  "private": false,
+  "author": "chardy",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
