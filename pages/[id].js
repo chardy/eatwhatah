@@ -34,19 +34,23 @@ function decideWhatToEat(value){
 function details() {
   const router = useRouter()
   const [slugId, setSlugId] = useState(null)
+  const [menu, setMenu] = useState(null)
   useEffect(() => {
     setSlugId(router.query.id)
   }, [])
-  const whattoeat = decideWhatToEat(slugId)
+  useEffect(() => {
+    const whattoeat = decideWhatToEat(slugId)
+    setMenu(whattoeat)
+  }, []);
 
   return (
     <Layout>
       <div className="max-w-xs mx-auto">
-        <div class="grid grid-cols-6 gap-4 pt-20 pb-10">
-          <div class="col-span-1">
+        <div className="grid grid-cols-6 gap-4 pt-20 pb-10">
+          <div className="col-span-1">
             <Link href="/"><a className="absolute center-0 left-5"><img src="/back.svg"/></a></Link>
           </div>
-          <div class="col-span-5">
+          <div className="col-span-5">
             <h1 className="relative text-5xl font-bold text-white leading-8">
               eat what ah?
             </h1>
@@ -54,13 +58,15 @@ function details() {
         </div>
         <h3 className="text-center pb-5 text-white">You have selected {slugId}</h3>
         <h2 className="text-5xl font-bold text-white pb-5 text-center">Can or not?</h2>
-        <img className="imgFixedHeight rounded-full mx-auto border-white border-2" src={whattoeat.cover[0].thumbnails.large.url} alt={whattoeat.name} />
-        <h3 className="text-center text-white text-3xl font-bold pt-5">{whattoeat.name}</h3>
-        <p className="text-center text-white">Min. Order ${whattoeat.minimumOrder}. Delivery ${whattoeat.deliveryFee}</p>
+        { menu ? (<>
+          <img className="imgFixedHeight rounded-full mx-auto border-white border-2" src={menu.cover[0].thumbnails.large.url} alt={menu.name} />
+        <h3 className="text-center text-white text-3xl font-bold pt-5">{menu.name}</h3>
+        <p className="text-center text-white">Min. Order ${menu.minimumOrder}. Delivery ${menu.deliveryFee}</p>
         <div className="grid grid-cols-2 gap-4 pt-10">
-          <Button onClick={() => window.location = whattoeat.link }>✅ Ok Can</Button>
+          <Button onClick={() => window.location = menu.link }>✅ Ok Can</Button>
           <Button onClick={() => router.push('/')}>❌ Cannot</Button>
         </div>
+        </>) : <div>Loading ...</div>}
       </div>
     </Layout>
   )
