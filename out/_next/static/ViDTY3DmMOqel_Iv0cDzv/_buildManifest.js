@@ -1,0 +1,1 @@
+self.__BUILD_MANIFEST = {"/[id]":["static\u002Fchunks\u002F61843d32.e1f2ceb7b14d855bd987.js"]};self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()

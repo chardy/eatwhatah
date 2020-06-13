@@ -1,0 +1,17 @@
+/* purgecss start ignore */
+@import 'tailwindcss/base';
+/* purgecss end ignore */
+
+@import 'tailwindcss/components';
+
+@import 'tailwindcss/utilities';
+
+
+h1, h2 {
+  font-family: 'Mansalva', cursive;
+}
+
+.imgFixedHeight {
+  width: 240px;
+  height: 240px;
+}
