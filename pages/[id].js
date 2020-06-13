@@ -11,9 +11,11 @@ function randomIntFromInterval(min, max) { // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function decideWhatToEat(value){
+function decideWhatToEat(value, halal, vegetarian){
   const random = randomIntFromInterval(0, 478);
   const whattoeat = menus[random]
+  console.log(halal);
+  console.log(vegetarian);
   // console.log(whattoeat.name)
   // console.log(value)
   // console.log(whattoeat.tagsName.includes(value))
@@ -22,9 +24,29 @@ function decideWhatToEat(value){
       return whattoeat
     } else {
       if(whattoeat.tagsName.includes(value)){
+        if(halal == "true"){
+          console.log("Halal - 1")
+          if(whattoeat.tagsName.includes("Halal")){
+            console.log("Halal - 2")
+            return whattoeat
+          } else {
+            console.log("Halal - 3")
+            return decideWhatToEat(value, halal, vegetarian)
+          }
+        }
+        if(vegetarian == "true"){
+          console.log("Vegs - 1")
+          if(whattoeat.tagsName.includes("Vegetarian")){
+            console.log("Vegs - 2")
+            return whattoeat
+          } else {
+            console.log("Vegs - 3")
+            return decideWhatToEat(value, halal, vegetarian)
+          }
+        }
         return whattoeat
       } else {
-        decideWhatToEat(value)
+        return decideWhatToEat(value, halal, vegetarian)
       }
     }
   }
@@ -33,13 +55,15 @@ function decideWhatToEat(value){
 
 function details() {
   const router = useRouter()
+  const { halal, vegetarian, id } = router.query
   const [slugId, setSlugId] = useState(null)
   const [menu, setMenu] = useState(null)
   useEffect(() => {
-    setSlugId(router.query.id)
+    setSlugId(id)
   }, [slugId])
+
   useEffect(() => {
-    setMenu(decideWhatToEat(slugId))
+    setMenu(decideWhatToEat(slugId, halal, vegetarian))
   }, [slugId]);
 
   return (
@@ -50,7 +74,7 @@ function details() {
             <Link href="/"><a><img className="pt-8" src="/back.svg"/></a></Link>
           </div>
           <div className="col-span-5">
-            <img className="mx-auto" src="/logo.svg"/>
+            <img className="pl-5" src="/logo.svg"/>
           </div>
         </div>
         <h3 className="text-center pb-3 text-white">You have selected { slugId }</h3>
@@ -59,11 +83,14 @@ function details() {
           <img className="imgFixedHeight rounded-full mx-auto border-white border-2" src={menu.cover[0].thumbnails.large.url} alt={menu.name} />
         <h3 className="text-center text-white text-3xl font-bold pt-3">{menu.name}</h3>
         <p className="text-center text-white">Min. Order ${menu.minimumOrder}. Delivery ${menu.deliveryFee}</p>
+        <p className="text-center text-white">{ menu.tagsName.split(",").map(tag => 
+          <span className="text-xs mr-2">{tag}</span>
+        ) }</p>
         <div className="grid grid-cols-2 gap-4 pt-5">
-          <Button onClick={() => window.location = menu.link }>✅ Ok Can</Button>
+          <Button onClick={() => window.location = menu.link }><img src="/ic-check-green.svg"/> Ok Can</Button>
           <Button onClick={() => {
-            setMenu(decideWhatToEat(slugId));
-          }}>❌ Cannot</Button>
+            setMenu(decideWhatToEat(slugId, halal, vegetarian));
+          }}><img src="/ic-close-red.svg"/> Cannot</Button>
         </div>
         </>) : <div></div>}
       </div>

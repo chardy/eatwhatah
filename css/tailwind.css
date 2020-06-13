@@ -19,3 +19,8 @@ h1, h2 {
   width: 240px;
   height: 240px;
 }
+
+.imgSmallFixedHeight {
+  width: 80px;
+  height: 80px;
+}
