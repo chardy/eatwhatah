@@ -7,6 +7,10 @@
 @import 'tailwindcss/utilities';
 
 
+body {
+  background-color: #D40808;
+}
+
 h1, h2 {
   font-family: 'Mansalva', cursive;
 }

@@ -1,6 +1,6 @@
 export default ({ children }) => {
   return (
-    <div className="antialiased bg-red-700 h-screen">
+    <div className="antialiased h-screen">
       { children }
     </div>
   )

@@ -37,36 +37,35 @@ function details() {
   const [menu, setMenu] = useState(null)
   useEffect(() => {
     setSlugId(router.query.id)
-  }, [])
+  }, [slugId])
   useEffect(() => {
-    const whattoeat = decideWhatToEat(slugId)
-    setMenu(whattoeat)
-  }, []);
+    setMenu(decideWhatToEat(slugId))
+  }, [slugId]);
 
   return (
     <Layout>
       <div className="max-w-xs mx-auto">
-        <div className="grid grid-cols-6 gap-4 pt-20 pb-10">
+        <div className="grid grid-cols-6 gap-4 pb-5">
           <div className="col-span-1">
-            <Link href="/"><a className="absolute center-0 left-5"><img src="/back.svg"/></a></Link>
+            <Link href="/"><a><img className="pt-8" src="/back.svg"/></a></Link>
           </div>
           <div className="col-span-5">
-            <h1 className="relative text-5xl font-bold text-white leading-8">
-              eat what ah?
-            </h1>
+            <img className="mx-auto" src="/logo.svg"/>
           </div>
         </div>
-        <h3 className="text-center pb-5 text-white">You have selected {slugId}</h3>
-        <h2 className="text-5xl font-bold text-white pb-5 text-center">Can or not?</h2>
+        <h3 className="text-center pb-3 text-white">You have selected { slugId }</h3>
+        <h2 className="text-4xl font-bold text-white pb-3 text-center">Can or not?</h2>
         { menu ? (<>
           <img className="imgFixedHeight rounded-full mx-auto border-white border-2" src={menu.cover[0].thumbnails.large.url} alt={menu.name} />
-        <h3 className="text-center text-white text-3xl font-bold pt-5">{menu.name}</h3>
+        <h3 className="text-center text-white text-3xl font-bold pt-3">{menu.name}</h3>
         <p className="text-center text-white">Min. Order ${menu.minimumOrder}. Delivery ${menu.deliveryFee}</p>
-        <div className="grid grid-cols-2 gap-4 pt-10">
+        <div className="grid grid-cols-2 gap-4 pt-5">
           <Button onClick={() => window.location = menu.link }>✅ Ok Can</Button>
-          <Button onClick={() => router.push('/')}>❌ Cannot</Button>
+          <Button onClick={() => {
+            setMenu(decideWhatToEat(slugId));
+          }}>❌ Cannot</Button>
         </div>
-        </>) : <div>Loading ...</div>}
+        </>) : <div></div>}
       </div>
     </Layout>
   )
