@@ -31,7 +31,7 @@ function about() {
         <p className="text-white text-center mb-5">
           Why? Cause when you order food online, people tend to only wan to recommend bigger, more popular choices.
         </p>
-        <p className="text-white text-center mb-5">
+        <p className="text-white text-center mb-10">
           So I say, walao liddat not good leh. And I designed a website for people to find a choice, picked randomly.
         </p>
       </div>
