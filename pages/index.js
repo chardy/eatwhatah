@@ -66,9 +66,11 @@ export default function index() {
           </label>
         </div>
       </div>
-      <Link href="/about">
-        <a>Who do this site one ah?</a>
-      </Link>
+      <div className="pt-5 pb-10 text-center">
+        <Link href="/about">
+          <a className="text-white text-center">Who do this site one ah?</a>
+        </Link>
+      </div>
     </div>
   </Layout>
   )
