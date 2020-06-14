@@ -84,7 +84,7 @@ function details() {
         <h3 className="text-center text-white text-3xl font-bold pt-3">{menu.name}</h3>
         <p className="text-center text-white">Min. Order ${menu.minimumOrder}. Delivery ${menu.deliveryFee}</p>
         <p className="text-center text-white">{ menu.tagsName.split(",").map(tag => 
-          <span className="text-xs mr-2">{tag}</span>
+          tag.includes("Oddle") ? "" : <span className="text-xs mr-2">{tag}</span>
         ) }</p>
         <div className="grid grid-cols-2 gap-4 pt-5">
           <Button onClick={() => window.location = menu.link }><img src="/ic-check-green.svg"/> Ok Can</Button>
@@ -93,6 +93,12 @@ function details() {
           }}><img src="/ic-close-red.svg"/> Cannot</Button>
         </div>
         </>) : <div></div>}
+
+        <div className="pt-5 pb-10 text-center">
+          <Link href="/about">
+            <a className="text-white text-center">Who do this site one ah?</a>
+          </Link>
+        </div>
       </div>
     </Layout>
   )
