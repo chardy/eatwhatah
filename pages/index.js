@@ -48,8 +48,8 @@ export default function index() {
         ))}
       </div>
       <br/>
-      <Button value="Anything" onClick={handleClick}>
-        I don't know
+      <Button value="I dunno" onClick={handleClick}>
+        I dunno
       </Button>
       <br/>
       <div className="grid grid-cols-2 gap-5 pt-10">

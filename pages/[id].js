@@ -45,7 +45,7 @@ function decideWhatToEat(value, halal, vegetarian){
   // console.log(whattoeat.tagsName.includes(value))
 
   if(value){
-    if(value == "Anything"){
+    if(value == "I dunno"){
       return whattoeat
     } else {
       if(whattoeat.tagsName.includes(value)){
@@ -99,7 +99,7 @@ function details() {
             <Link href="/"><a><img className="pt-8" src="/back.svg"/></a></Link>
           </div>
           <div className="col-span-5">
-            <img className="pl-5" src="/logo.svg"/>
+            <img className="pl-3" src="/logo.svg"/>
           </div>
         </div>
         <h3 className="text-center pb-3 text-white">You have selected { slugId }</h3>
@@ -107,12 +107,12 @@ function details() {
         { menu ? (<>
           <img className="imgFixedHeight rounded-full mx-auto border-white border-2" src={menu.cover[0].thumbnails.large.url} alt={menu.name} />
         <h3 className="text-center text-white text-3xl font-bold pt-3">{menu.name}</h3>
-        <p className="text-center text-white">Min. Order ${menu.minimumOrder}. Delivery ${menu.deliveryFee}</p>
+        <p className="text-center text-white">Min. order ${menu.minimumOrder} • Delivery ${menu.deliveryFee}</p>
         <p className="text-center text-white">{ menu.tagsName.split(",").map(tag => 
-          tag.includes("Oddle") ? "" : <span className="text-xs mr-2">{tag}</span>
+          tag.includes("Oddle") ? "" : <span className="text-xs mr-2 font-bold inline-block">• {tag}</span>
         ) }</p>
         <div className="grid grid-cols-2 gap-4 pt-5">
-          <Button onClick={() => window.location = menu.link }><img src="/ic-check-green.svg"/> Ok Can</Button>
+          <Button onClick={() => window.location = menu.link }><img src="/ic-check-green.svg"/> Ok can</Button>
           <Button onClick={() => {
             setMenu(decideWhatToEat(slugId, halal, vegetarian));
           }}><img src="/ic-close-red.svg"/> Cannot</Button>
