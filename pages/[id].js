@@ -11,36 +11,61 @@ function randomIntFromInterval(min, max) { // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function whatToEat(value, halal, vegetarian){
+  const menus = oddle.pageProps.menus
+  let allItems = []
+
+  allItems = menus.filter(menu => {
+    if(halal){
+      return menu.tagsName.includes(value) && menu.tagsName.includes("Halal")
+    }
+    if(vegetarian){
+      return menu.tagsName.includes(value) && menu.tagsName.includes("Vegetarian")
+    }
+    return menu.tagsName.includes(value)
+  })
+
+  return allItems
+}
+
 function decideWhatToEat(value, halal, vegetarian){
   const random = randomIntFromInterval(0, 478);
   const whattoeat = menus[random]
-  console.log(halal);
-  console.log(vegetarian);
+
+  // if use array
+  // const allwhattoeat = whatToEat(value, halal, vegetarian);
+  // console.log(allwhattoeat);
+  // const random = randomIntFromInterval(0, allwhattoeat.length);
+  // const whattoeat = allwhattoeat[random]
+
+  // console.log(halal);
+  // console.log(vegetarian);
   // console.log(whattoeat.name)
   // console.log(value)
   // console.log(whattoeat.tagsName.includes(value))
+
   if(value){
     if(value == "Anything"){
       return whattoeat
     } else {
       if(whattoeat.tagsName.includes(value)){
         if(halal == "true"){
-          console.log("Halal - 1")
+          // console.log("Halal - 1")
           if(whattoeat.tagsName.includes("Halal")){
-            console.log("Halal - 2")
+            // console.log("Halal - 2")
             return whattoeat
           } else {
-            console.log("Halal - 3")
+            // console.log("Halal - 3")
             return decideWhatToEat(value, halal, vegetarian)
           }
         }
         if(vegetarian == "true"){
-          console.log("Vegs - 1")
+          // console.log("Vegs - 1")
           if(whattoeat.tagsName.includes("Vegetarian")){
-            console.log("Vegs - 2")
+            // console.log("Vegs - 2")
             return whattoeat
           } else {
-            console.log("Vegs - 3")
+            // console.log("Vegs - 3")
             return decideWhatToEat(value, halal, vegetarian)
           }
         }
