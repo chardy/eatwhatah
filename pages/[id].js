@@ -84,17 +84,20 @@ function details() {
   const [slugId, setSlugId] = useState(null)
   const [menu, setMenu] = useState(null)
   const [loading, setloading] = useState(false)
-  useEffect(() => {
-    setSlugId(id)
-  }, [slugId])
+  // useEffect(() => {
+  //  setSlugId(id)
+  // }, [slugId])
 
   useEffect(() => {
-    setloading(true);
-    setTimeout(() => {
-      setMenu(decideWhatToEat(slugId, halal, vegetarian));
-      setloading(false);
-    }, 500);
-  }, [slugId]);
+    if(id){
+      setSlugId(id);
+      setloading(true);
+      setTimeout(() => {
+        setMenu(decideWhatToEat(id, halal, vegetarian));
+        setloading(false);
+      }, 500);
+    }
+  }, [id]);
 
   return (
     <Layout>
