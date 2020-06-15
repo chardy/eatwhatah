@@ -15,9 +15,16 @@ export default class MyDocument extends Document {
           <meta key="og-locale" property="og:locale" content="en_US" />
           <meta key="og-description" property="og:description" content="What do you feel like eating?" />
           <meta key="og-title" property="og:title" content="Eat what ah?" />
-          <meta key="og-image" property="og:image" content="/og-image.jpg" />
+          <meta key="og-image" property="og:image" content="https://eatwhatah.com/og-image.jpg" />
           <meta key="meta-description" name="description" content="What do you feel like eating?" />
-          <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+          <meta name="twitter:card" content="eatwhatah.com" />
+          <meta name="twitter:site" content="@iamthye" />
+          <meta name="twitter:creator" content="@iamthye" />
+          <meta name="twitter:url" content="https://eatwhatah.com"/>
+          <meta name="twitter:title" content="Eat what ah?" />
+          <meta name="twitter:description" content="What do you feel like eating?" />
+          <meta name="twitter:image" content="https://eatwhatah.com/og-image.jpg" />
+          <link rel="shortcut icon" type="image/x-icon" href="https://eatwhatah.com/favicon.ico" />
         </Head>
         <body>
           <Main />
