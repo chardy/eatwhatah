@@ -15,7 +15,7 @@ export default class MyDocument extends Document {
           <meta key="og-locale" property="og:locale" content="en_US" />
           <meta key="og-description" property="og:description" content="What do you feel like eating?" />
           <meta key="og-title" property="og:title" content="eatwhatah?" />
-          <meta key="og-image" property="og:image" content="/og-image.png" />
+          <meta key="og-image" property="og:image" content="/og-image.jpg" />
           <meta key="meta-description" name="description" content="What do you feel like eating?" />
           <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         </Head>
