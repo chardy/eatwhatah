@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
           <meta key="og-title" property="og:title" content="Eat what ah?" />
           <meta key="og-image" property="og:image" content="https://eatwhatah.com/og-image.jpg" />
           <meta key="meta-description" name="description" content="What do you feel like eating?" />
-          <meta name="twitter:card" content="eatwhatah.com" />
+          <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content="@iamthye" />
           <meta name="twitter:creator" content="@iamthye" />
           <meta name="twitter:url" content="https://eatwhatah.com"/>
