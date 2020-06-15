@@ -83,12 +83,17 @@ function details() {
   const { halal, vegetarian, id } = router.query
   const [slugId, setSlugId] = useState(null)
   const [menu, setMenu] = useState(null)
+  const [loading, setloading] = useState(false)
   useEffect(() => {
     setSlugId(id)
   }, [slugId])
 
   useEffect(() => {
-    setMenu(decideWhatToEat(slugId, halal, vegetarian))
+    setloading(true);
+    setTimeout(() => {
+      setMenu(decideWhatToEat(slugId, halal, vegetarian));
+      setloading(false);
+    }, 500);
   }, [slugId]);
 
   return (
@@ -105,18 +110,22 @@ function details() {
         <h3 className="text-center pb-3 text-white">You have selected { slugId }</h3>
         <h2 className="text-4xl font-bold text-white pb-3 text-center">Can or not?</h2>
         { menu ? (<>
-          <img className="imgFixedHeight rounded-full mx-auto border-white border-2" src={menu.cover[0].thumbnails.large.url} alt={menu.name} />
-        <h3 className="text-center text-white text-3xl font-bold pt-3">{menu.name}</h3>
-        <p className="text-center text-white">Min. order ${menu.minimumOrder} • Delivery ${menu.deliveryFee}</p>
-        <p className="text-center text-white">{ menu.tagsName.split(",").map(tag => 
-          tag.includes("Oddle") ? "" : <span className="text-xs mr-2 font-bold inline-block">• {tag}</span>
-        ) }</p>
-        <div className="grid grid-cols-2 gap-4 pt-5">
-          <Button onClick={() => window.location = menu.link }><img src="/ic-check-green.svg"/> Ok can</Button>
-          <Button onClick={() => {
-            setMenu(decideWhatToEat(slugId, halal, vegetarian));
-          }}><img src="/ic-close-red.svg"/> Cannot</Button>
-        </div>
+          { !loading ? <img className="imgFixedHeight rounded-full mx-auto border-white border-8 bg-white" src={menu.cover[0].thumbnails.large.url} alt={menu.name} /> : <div className="imgFixedHeight rounded-full mx-auto border-white border-8 bg-white"></div>}
+          <h3 className="text-center text-white text-3xl font-bold pt-3">{menu.name}</h3>
+          <p className="text-center text-white">Min. order ${menu.minimumOrder} • Delivery ${menu.deliveryFee}</p>
+          <p className="text-center text-white">{ menu.tagsName.split(",").map(tag => 
+            tag.includes("Oddle") ? "" : <span className="text-xs mr-2 font-bold inline-block">• {tag}</span>
+          ) }</p>
+          <div className="grid grid-cols-2 gap-4 pt-5">
+            <Button onClick={() => window.location = menu.link }><img src="/ic-check-green.svg"/> Ok can</Button>
+            <Button onClick={() => {
+              setloading(true);
+              setTimeout(() => {
+                setMenu(decideWhatToEat(slugId, halal, vegetarian));
+                setloading(false);
+              }, 500);
+            }}><img src="/ic-close-red.svg"/> Cannot</Button>
+          </div>
         </>) : <div></div>}
 
         <div className="pt-5 pb-10 text-center">
