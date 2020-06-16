@@ -18,8 +18,9 @@ function about() {
         <h2 className="text-4xl font-bold text-white pb-3 text-center">Who do this site <br/>wan ah?</h2>
         <img className="imgSmallFixedHeight rounded-full mx-auto border-white border-2" src="/thye.png" alt="Tan Thye Chuan" />
         <h4 className="text-2xl font-bold text-white pb-3 pt-3 text-center">Tan Thye Chuan</h4>
+        <p className="text-white text-center mb-5">I am a designer and coach. I like to solve problems. And ya, I like to eat.</p>
         <div className="pb-5">
-          <a href="https://gdwrk.io" className="flex items-center justify-center px-6 py-3 text-base leading-6 font-bold rounded-lg text-black bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150 mx-auto w-40">Contact me</a>
+          <a href="https://iamthye.com" className="flex items-center justify-center px-6 py-3 text-base leading-6 font-bold rounded-lg text-black bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150 mx-auto w-40">Contact me</a>
         </div>
         <h2 className="text-4xl font-bold text-white pb-3 text-center">Why leh?</h2>
         <p className="text-white text-center mb-5">
@@ -34,8 +35,8 @@ function about() {
         <p className="text-white text-center mb-5">
           So I say, walao liddat not good leh. And I designed a website for people to find a choice, picked randomly.
         </p>
-        <div className="pb-30">
-          <a href="https://gdwrk.io" className="flex items-center justify-center px-6 py-3 text-base leading-6 font-bold rounded-lg text-black bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150 mx-auto w-56">Want to work with me?</a>
+        <div className="mb-20">
+          <a href="https://iamthye.com" className="flex items-center justify-center px-6 py-3 text-base leading-6 font-bold rounded-lg text-black bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150 mx-auto w-56">Want to work with me?</a>
         </div>
       </div>
     </Layout>

@@ -25,3 +25,9 @@ h1, h2 {
   width: 80px;
   height: 80px;
 }
+
+.loadingMe {
+  position: absolute;
+  top: 96px;
+  left: 96px;
+}

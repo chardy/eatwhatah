@@ -83,7 +83,7 @@ function details() {
   const { halal, vegetarian, id } = router.query
   const [slugId, setSlugId] = useState(null)
   const [menu, setMenu] = useState(null)
-  const [loading, setloading] = useState(false)
+  const [loading, setloading] = useState(true)
   // useEffect(() => {
   //  setSlugId(id)
   // }, [slugId])
@@ -113,7 +113,7 @@ function details() {
         <h3 className="text-center pb-3 text-white">You have selected { slugId }</h3>
         <h2 className="text-4xl font-bold text-white pb-3 text-center">Can or not?</h2>
         { menu ? (<>
-          { !loading ? <img className="imgFixedHeight rounded-full mx-auto border-white border-8 bg-white" src={menu.cover[0].thumbnails.large.url} alt={menu.name} /> : <div className="imgFixedHeight rounded-full mx-auto border-white border-8 bg-white"></div>}
+          { !loading ? <img className="imgFixedHeight rounded-full mx-auto border-white border-8 bg-white" src={menu.cover[0].thumbnails.large.url} alt={menu.name} /> : <div className="imgFixedHeight rounded-full mx-auto border-white border-8 bg-white text-center relative"><img className="loadingMe" src="/ajax-loader.gif"/></div>}
           <h3 className="text-center text-white text-3xl font-bold pt-3">{menu.name}</h3>
           <p className="text-center text-white">Min. order ${menu.minimumOrder} • Delivery ${menu.deliveryFee}</p>
           <p className="text-center text-white">{ menu.tagsName.split(",").map(tag => 
