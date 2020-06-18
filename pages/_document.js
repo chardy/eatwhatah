@@ -6,6 +6,7 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           {this.props.styleTags}
+          <title>Eat What Ah?</title>
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mansalva&display=swap"/>
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width,initial-scale=1" />
