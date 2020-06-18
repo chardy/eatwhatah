@@ -34,9 +34,15 @@ export default function index() {
   return (
   <Layout>
     <div className="max-w-xs mx-auto">
-      <div className="grid grid-cols-6 gap-4">
-        <div className="col-span-6">
-          <img className="text-center mx-auto" src="/logo.svg"/>
+      <div className="grid grid-cols-6 gap-4 pb-5">
+        <div className="col-span-1">
+          &nbsp;
+        </div>
+        <div className="col-span-4">
+          <img className="pl-3" src="/logo.svg"/>
+        </div>
+        <div className="col-span-1">
+          <a href="https://forms.gle/MsS6mYu2z8n8ciG37" target="_blank"><img className="pt-8" src="/feedback.svg"/></a>
         </div>
       </div>
       <h2 className="text-3xl font-bold text-white pb-5 text-center">What you feel like eating?</h2>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>leave-feedback</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Recommend" transform="translate(-313.000000, -28.000000)">
+            <g id="leave-feedback" transform="translate(313.000000, 28.000000)">
+                <circle id="Oval-Copy" fill="#FFFFFF" cx="20" cy="20" r="20"></circle>
+                <path d="M14.8834095,28.7150695 C13.0759862,29.4350058 11.6227407,28.6596474 12.7114685,27.8407233 C13.437287,27.294774 14.017611,26.3120651 14.4524403,24.8925968 C12.1508134,23.6848907 11,21.794564 11,19.2216168 C11,15.362196 14.8585936,13 20.9624728,13 C27.0663521,13 29.6080496,16.2423326 29.6080496,19.2216168 C29.6080496,22.200901 27.3056874,26.2897309 18.8238955,26.2897309 C17.4018536,27.4266658 16.0883583,28.235112 14.8834095,28.7150695 Z" id="Path-2" fill="#000000"></path>
+            </g>
+        </g>
+    </g>
+</svg>

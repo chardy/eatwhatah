@@ -106,8 +106,11 @@ function details() {
           <div className="col-span-1">
             <Link href="/"><a><img className="pt-8" src="/back.svg"/></a></Link>
           </div>
-          <div className="col-span-5">
+          <div className="col-span-4">
             <img className="pl-3" src="/logo.svg"/>
+          </div>
+          <div className="col-span-1">
+            <a href="https://forms.gle/MsS6mYu2z8n8ciG37" target="_blank"><img className="pt-8" src="/feedback.svg"/></a>
           </div>
         </div>
         <h3 className="text-center pb-3 text-white">You have selected { slugId }</h3>
